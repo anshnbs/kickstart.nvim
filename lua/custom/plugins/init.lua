@@ -7,7 +7,11 @@ return {
   'jackMort/ChatGPT.nvim',
   event = 'VeryLazy',
   config = function()
-    require('chatgpt').setup()
+    local chatgpt = require 'chatgpt'
+    chatgpt.setup()
+    vim.keymap.set('v', '<leader>pe', function()
+      chatgpt.edit_with_instructions()
+    end, { desc = 'ChatGPT: Edit with instructions' })
   end,
   dependencies = {
     'MunifTanjim/nui.nvim',
