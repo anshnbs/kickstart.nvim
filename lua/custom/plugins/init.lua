@@ -2,4 +2,17 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+-- Lazy
+return {
+  'jackMort/ChatGPT.nvim',
+  event = 'VeryLazy',
+  config = function()
+    require('chatgpt').setup()
+  end,
+  dependencies = {
+    'MunifTanjim/nui.nvim',
+    'nvim-lua/plenary.nvim',
+    'folke/trouble.nvim', -- optional
+    'nvim-telescope/telescope.nvim',
+  },
+}
